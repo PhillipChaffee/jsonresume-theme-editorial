@@ -42,6 +42,8 @@ resume export resume.pdf --theme editorial
 
 | Option | Meaning |
 | --- | --- |
+| `palette` | `"sepia"` (the default) or `"white"`, for a site whose other pages are white. Both turn dark gray on a dark system and print in ink on white. |
+| `dark` | `false` keeps the light palette on a dark system, for a site with no dark mode |
 | `nav` | Links shown above the resume on screen: `[{ label, href, current }]` |
 | `pdf` | Address of the PDF, for a Download PDF link beside them |
 | `note` | A short tag beside that link, such as a variant name |

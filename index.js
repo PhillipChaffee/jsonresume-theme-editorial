@@ -206,6 +206,14 @@ function navHtml({ nav = [], pdf, note }) {
   return `<nav class="nav screen" aria-label="Site">${links}<span class="sp"></span>${end}</nav>`;
 }
 
+// The page colours render() can be asked for. Sepia is the default; white
+// suits a site whose other pages are white. Both turn dark gray on a dark
+// system and print in ink on white.
+const PALETTES = ["sepia", "white"];
+
+// options.palette: "sepia" (the default) or "white".
+// options.dark: false keeps the light palette on a dark system, for a site
+// whose other pages have no dark mode.
 // options.nav: [{ label, href, current }], links shown on screen above the resume.
 // options.pdf: address of the PDF, for a Download PDF link beside them.
 // options.note: a short tag beside that link, such as a variant name.
@@ -213,17 +221,18 @@ function navHtml({ nav = [], pdf, note }) {
 // restyles the nav to match the site around it.
 function render(resume, options = {}) {
   const basics = resume.basics ?? {};
+  const palette = PALETTES.includes(options.palette) ? options.palette : PALETTES[0];
   const contact = contactHtml(basics);
 
   return `<!doctype html>
-<html lang="en">
+<html lang="en" data-palette="${palette}"${options.dark === false ? ' data-dark="off"' : ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escape(words(basics.name, "· Resume"))}</title>
 <meta name="description" content="${escape(dotted([basics.name, basics.label]))}">
-<meta name="theme-color" content="#F8F1E3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#2C2C2E" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="${palette === "white" ? "#FFFFFF" : "#F8F1E3"}" media="(prefers-color-scheme: light)">
+${options.dark === false ? "" : '<meta name="theme-color" content="#2C2C2E" media="(prefers-color-scheme: dark)">'}
 <style>
 ${CSS}</style>
 ${options.head ?? ""}
@@ -249,4 +258,4 @@ ${SECTIONS.map((section) => sectionHtml(resume, section)).filter(Boolean).join("
 // Read by resume-cli's PDF export: the page size and margins come from the CSS.
 const pdfRenderOptions = { preferCSSPageSize: true, printBackground: true };
 
-module.exports = { render, pdfRenderOptions };
+module.exports = { render, pdfRenderOptions, PALETTES };
