@@ -6,6 +6,14 @@ the accent colour, and dates at the right edge of each entry. The palette is a
 warm paper (a dark gray on a dark system), and the type is Source Serif 4 with
 Inter for small details.
 
+| Web, light | Web, dark |
+| --- | --- |
+| ![The example resume on a desktop screen in the light palette](docs/light.png) | ![The same resume in the dark palette, used when the system is dark](docs/dark.png) |
+| **Phone** | **PDF, first page** |
+| ![The example resume at phone width](docs/phone.png) | ![The first page of the printed PDF, in ink on white Letter paper](docs/pdf.png) |
+
+The screenshots show `example/resume.json`, a made-up resume.
+
 `render(resume, options)` returns one HTML document with its styles and fonts
 inside it. The same file is the web page and the source of the PDF: its print
 styles set it in ink on white Letter paper, two pages for a typical resume,
@@ -51,7 +59,7 @@ links; any other tag is shown as text.
 
 ```bash
 npm test
-npm run preview -- path/to/resume.json   # writes preview/index.html
+npm run preview -- example/resume.json   # writes preview/index.html
 ```
 
 ## Fonts
