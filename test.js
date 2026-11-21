@@ -78,3 +78,14 @@ test("the nav, PDF link and extra head appear only when asked for", () => {
   assert.match(html, /draft/);
   assert.match(html.split("</head>")[0], /<style id="site">/);
 });
+
+test("the page is sepia unless the white palette is asked for", () => {
+  assert.match(render({}), /<html lang="en" data-palette="sepia">/);
+  assert.match(render({}, { palette: "white" }), /<html lang="en" data-palette="white">/);
+  assert.match(render({}, { palette: "neon" }), /<html lang="en" data-palette="sepia">/);
+});
+
+test("dark mode is on unless turned off", () => {
+  assert.match(render({}), /<html lang="en" data-palette="sepia">/);
+  assert.match(render({}, { dark: false }), /<html lang="en" data-palette="sepia" data-dark="off">/);
+});

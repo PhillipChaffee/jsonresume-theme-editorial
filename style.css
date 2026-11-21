@@ -9,8 +9,15 @@
   --column: 740px;
   color-scheme: light dark;
 }
+:root[data-dark="off"] { color-scheme: light; }
+/* White paper for sites with a white background, chosen with
+   render(resume, { palette: "white" }). */
+:root[data-palette="white"] {
+  --page: #FFFFFF; --text: #1F1F1F; --heading: #111111; --muted: #6B6B68;
+  --rule: #E5E3DE; --link: #9A4A1F; --accent: #B25E28; --selection: #F3DFC6;
+}
 @media screen and (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-dark="off"]), :root[data-palette]:not([data-dark="off"]) {
     --page: #2C2C2E; --text: #DAD7D0; --heading: #EEEBE4; --muted: #9C9991;
     --rule: #404044; --link: #9DC1F5; --accent: #E0A458; --selection: #475673;
   }
