@@ -57,7 +57,12 @@ links; any other tag is shown as text.
 
 ## Develop
 
+The stylesheet and fonts are inlined into `assets.js` by `npm run build`, so
+the theme reads no files when it renders. Commit `assets.js` after changing
+`style.css` or `fonts/`; `npm test` fails while it is out of date.
+
 ```bash
+npm run build
 npm test
 npm run preview -- example/resume.json   # writes preview/index.html
 ```

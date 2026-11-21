@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "A JSON Resume theme with a large serif name, the summary as an opening paragraph, and one HTML file that serves the web and prints to PDF.",
   "main": "index.js",
-  "files": ["index.js", "style.css", "fonts/"],
+  "files": ["index.js", "assets.js", "fonts/LICENSE-*"],
   "scripts": {
-    "test": "node --test test.js",
+    "build": "node build.js",
+    "test": "node build.js --check && node --test test.js",
+    "prepublishOnly": "npm test",
     "preview": "node preview.js"
   },
   "keywords": ["jsonresume", "jsonresume-theme", "resume"],
   "author": "Phillip Chaffee",
+  "repository": { "type": "git", "url": "git+https://github.com/PhillipChaffee/jsonresume-theme-editorial.git" },
+  "homepage": "https://github.com/PhillipChaffee/jsonresume-theme-editorial#readme",
   "license": "MIT",
   "engines": { "node": ">=18" }
 }

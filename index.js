@@ -1,27 +1,12 @@
 // jsonresume-theme-editorial: a JSON Resume theme with a large serif name,
 // the summary set as an opening paragraph, and italic section names in an
 // accent colour. render() returns one HTML document with its fonts inside it,
-// so the same file can be served as a web page and printed to PDF.
+// so the same file can be served as a web page and printed to PDF. It reads
+// no files when it renders.
 
-const fs = require("fs");
-const path = require("path");
-
-const read = (file, encoding) => fs.readFileSync(path.join(__dirname, file), encoding);
-
-const FACES = [
-  ["Source Serif 4", "normal", "SourceSerif4-Roman.woff2"],
-  ["Source Serif 4", "italic", "SourceSerif4-Italic.woff2"],
-  ["Inter", "normal", "Inter.woff2"],
-];
-
-const CSS =
-  FACES.map(
-    ([family, style, file]) =>
-      `@font-face { font-family: "${family}"; font-style: ${style}; font-weight: ${family === "Inter" ? "100" : "200"} 900; ` +
-      `src: url(data:font/woff2;base64,${read(`fonts/${file}`, "base64")}) format("woff2"); }`,
-  ).join("\n") +
-  "\n" +
-  read("style.css", "utf-8");
+// The stylesheet with its fonts inlined, built by build.js, so rendering
+// reads no files.
+const { css: CSS } = require("./assets.js");
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
