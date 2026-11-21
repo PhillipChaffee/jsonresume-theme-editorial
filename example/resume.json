@@ -1,0 +1,48 @@
+{
+  "basics": {
+    "name": "Ada Lovelace",
+    "label": "Analyst and Writer",
+    "email": "ada@example.com",
+    "url": "https://example.com",
+    "summary": "Mathematician who writes about what calculating engines could do beyond arithmetic. Interested in symbols, music and the patterns that connect them, and in explaining hard ideas plainly.",
+    "location": { "city": "London" },
+    "profiles": [{ "network": "GitHub", "username": "ada", "url": "https://github.com/ada" }]
+  },
+  "work": [
+    {
+      "name": "Analytical Engine Project",
+      "position": "Lead Analyst",
+      "startDate": "1842-10",
+      "summary": "Translated and annotated a paper on the engine, then extended it with notes three times its length.",
+      "highlights": [
+        "Wrote the first published algorithm intended for a machine: computing Bernoulli numbers on the engine.",
+        "Described how the engine could act on symbols other than numbers, such as musical notes.",
+        "Corrected errors in the original paper and worked through each step of the method in a table."
+      ],
+      "tech": ["Punched cards", "Difference tables", "Notation"]
+    },
+    {
+      "name": "Royal Society Reading Room",
+      "position": "Correspondent",
+      "startDate": "1835",
+      "endDate": "1842",
+      "highlights": [
+        "Kept up a long correspondence on calculus, probability and logic.",
+        "Studied mathematics with tutors and wrote up each lesson as a set of worked problems."
+      ]
+    }
+  ],
+  "education": [
+    { "institution": "Private study", "area": "Mathematics", "studyType": "Tutored", "startDate": "1829", "endDate": "1840" }
+  ],
+  "skills": [
+    { "name": "Mathematics", "keywords": ["Calculus", "Probability", "Logic"] },
+    { "name": "Writing", "keywords": ["Translation", "Technical notes", "Letters"] }
+  ],
+  "projects": [
+    { "name": "Note G", "startDate": "1843", "description": "A step-by-step method for computing Bernoulli numbers on the Analytical Engine." }
+  ],
+  "awards": [
+    { "title": "Honorary Member", "awarder": "London Mathematical Circle", "date": "1844", "summary": "For the notes on the Analytical Engine." }
+  ]
+}
