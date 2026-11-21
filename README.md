@@ -69,6 +69,13 @@ npm test
 npm run preview -- example/resume.json   # writes preview/index.html
 ```
 
+## Release
+
+Merging to `main` publishes to npm when `package.json` has a version that
+npm does not, so bump `version` in the pull request that should be
+released. The publish workflow needs an npm automation token in the
+repository secret `NPM_TOKEN`.
+
 ## Fonts
 
 Source Serif 4 (Adobe) and Inter (The Inter Project
